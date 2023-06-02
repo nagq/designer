@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "preserveConstEnums": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@designer/*": ["./packages/*/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
