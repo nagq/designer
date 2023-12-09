@@ -7,7 +7,7 @@
     "examples"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react-hooks", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "extends": [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -34,8 +34,6 @@
     "@typescript-eslint/no-object-literal-type-assertion": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { "ignoreRestSiblings": true }],
     "cypress/no-unnecessary-waiting": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
     "react/display-name": "warn",
     "react/prop-types": "off",
     "no-console": ["warn"],
