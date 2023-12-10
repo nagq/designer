@@ -1,0 +1,25 @@
+{
+  "name": "@designer/shared",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/lib",
+  "module": "dist/esm",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf -rf dist && npm run build:cjs && npm run build:esm && npm run build:umd",
+    "build:cjs": "tsc --project ./tsconfig.build.json --module CommonJS --target ES5 --outDir ./dist/cjs",
+    "build:esm": "tsc --project ./tsconfig.build.json --module ES6 --target ES5 --outDir ./dist/esm",
+    "build:esnext": "tsc --project ./tsconfig.build.json --module ESNext --target ESNext --outDir ./dist/esnext",
+    "build:umd": "rollup --config"
+  },
+  "dependencies": {
+    "requestidlecallback": "^0.3.0"
+  },
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "esnext": "dist/esnext"
+}

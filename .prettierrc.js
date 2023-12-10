@@ -9,4 +9,5 @@ module.exports = {
   bracketSpacing: true,
   bracketSameLine: true,
   arrowParens: 'always',
+  endOfLine: 'auto',
 };
