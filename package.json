@@ -2,14 +2,16 @@
   "name": "designer",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "scripts": {
     "build": "rimraf -rf packages/*/{lib,esm} && lerna run build",
     "clean": "lerna clean",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "prettier": "prettier --write ./packages/**/src/**/*.{js,jsx,tsx,ts}"
+    "prettier": "prettier --write ./packages/**/src/**/*.{js,jsx,tsx,ts}",
+    "run:flow": " lerna run --scope flow dev"
   },
   "husky": {
     "hooks": {

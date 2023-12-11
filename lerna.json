@@ -11,5 +11,9 @@
       "exact": true,
       "message": "chore(versions): 😊 publish %s"
     }
-  }
+  },
+  "packages": [
+    "packages/*",
+    "examples/*"
+  ]
 }
