@@ -1,4 +1,4 @@
-# desinger
+# designer
 
 ## 资源
 
