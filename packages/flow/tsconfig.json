@@ -12,7 +12,15 @@
         "./src/*"
       ]
     },
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "strict": false,
+    "noEmit": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

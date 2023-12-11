@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@designer/core": "*",
     "@designer/shared": "*",
     "next": "14.0.4",
     "react": "^18",

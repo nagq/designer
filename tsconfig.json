@@ -20,5 +20,13 @@
       "@designer/*": ["./packages/*/src"]
     }
   },
+  "references": [
+    {
+      "path": "./packages/shared"
+    },
+    {
+      "path": "./packages/core"
+    }
+  ],
   "exclude": ["node_modules"]
 }

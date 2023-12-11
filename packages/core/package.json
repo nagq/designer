@@ -1,8 +1,11 @@
 {
-  "name": "@designer/shared",
+  "name": "@designer/core",
   "version": "1.0.0",
+  "description": "",
+  "keywords": [],
   "license": "MIT",
-  "main": "dist/designer.shared.umd.js",
+  "author": "",
+  "main": "dist/designer.core.umd.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
   "scripts": {
@@ -11,10 +14,21 @@
     "build:esm": "tsc --project ./tsconfig.build.json --module ES6 --target ES5 --outDir ./dist/esm",
     "build:esnext": "tsc --project ./tsconfig.build.json --module ESNext --target ESNext --outDir ./dist/esnext",
     "build:umd": "rollup --config",
-    "dev": "microbundle watch -i src/index.ts --external none --compress false -f umd --generateTypes false --sourcemap false --output dist/designer.shared.umd.js --name Designer.Shared"
+    "dev": "microbundle watch -i src/index.ts --external none --compress false -f umd --generateTypes false --sourcemap false --output dist/designer.core.umd.js --name Designer.Core"
   },
   "dependencies": {
-    "requestidlecallback": "^0.3.0"
+    "@designable/shared": "1.0.0-beta.45",
+    "@juggle/resize-observer": "^3.3.1"
+  },
+  "devDependencies": {
+    "@formily/json-schema": "^2.0.2",
+    "@formily/path": "^2.0.2",
+    "@formily/reactive": "^2.0.2"
+  },
+  "peerDependencies": {
+    "@formily/json-schema": "^2.0.2",
+    "@formily/path": "^2.0.2",
+    "@formily/reactive": "^2.0.2"
   },
   "engines": {
     "npm": ">=3.0.0"

@@ -2,16 +2,15 @@
   "name": "designer",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "examples/*"
+    "packages/*"
   ],
   "scripts": {
-    "build": "rimraf -rf packages/*/{lib,esm} && lerna run build",
+    "build": "rimraf -rf packages/*/{lib,esm} && lerna --scope @designer/shared run build",
     "clean": "lerna clean",
+    "dev": " lerna run dev --parallel",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "prettier": "prettier --write ./packages/**/src/**/*.{js,jsx,tsx,ts}",
-    "run:flow": " lerna run --scope flow dev"
+    "prettier": "prettier --write ./packages/**/src/**/*.{js,jsx,tsx,ts}"
   },
   "husky": {
     "hooks": {
@@ -47,6 +46,7 @@
     "lerna": "^8.0.0",
     "less-plugin-npm-import": "^2.1.0",
     "lint-staged": "^15.2.0",
+    "microbundle": "^0.15.1",
     "prettier": "^2.2.1",
     "rollup": "^2.79.1",
     "rollup-plugin-bundle-size": "^1.0.3",
