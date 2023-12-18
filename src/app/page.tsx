@@ -1,12 +1,21 @@
 'use client';
 
-import { Button } from 'antd';
+import { DesignerLayoutContext } from '@/commom/context'
+import { WorkspacePanel, ViewPanel } from '@/commom/components/panels'
 import './page.scss';
 
 export default function Home() {
   return (
-    <main>
-      <Button>测试</Button>
-    </main>
+    <DesignerLayoutContext.Provider
+      value={{
+        prefixCls: 'designer-flow'
+      }}
+    >
+      <WorkspacePanel>
+        <WorkspacePanel.Item>测试</WorkspacePanel.Item>
+        <ViewPanel iframe="/preview" />
+        <WorkspacePanel.Item>测试</WorkspacePanel.Item>
+      </WorkspacePanel>
+    </DesignerLayoutContext.Provider>
   );
 }

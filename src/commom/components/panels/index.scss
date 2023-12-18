@@ -1,0 +1,15 @@
+@import '@/commom/styles/variables.scss';
+
+.#{$prefix-cls}-workspace {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.#{$prefix-cls}-view-panel {
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
