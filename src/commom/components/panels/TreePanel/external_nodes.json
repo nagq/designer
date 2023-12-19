@@ -1,0 +1,22 @@
+[
+  {
+    "id": 101,
+    "parent": 0,
+    "text": "External node 1"
+  },
+  {
+    "id": 102,
+    "parent": 0,
+    "text": "External node 2"
+  },
+  {
+    "id": 103,
+    "parent": 0,
+    "text": "External node 3"
+  },
+  {
+    "id": 104,
+    "parent": 0,
+    "text": "External node 4"
+  }
+]

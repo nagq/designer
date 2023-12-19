@@ -1,0 +1,60 @@
+@import '@/commom/styles/variables.scss';
+
+.#{$prefix-cls}-tree-panel {
+  &-drag-layer {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  &-drag-preview {
+    align-items: "center";
+    background-color: #1967d2;
+    border-radius: 4px;
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, .25), 0 0 0 1px rgba(0, 0, 0, .08);
+    color: #fff;
+    display: inline-grid;
+    font-size: 14px;
+    gap: 8px;
+    grid-template-columns: auto auto;
+    padding: 4px 8px;
+    pointer-events: none;
+
+    .icon, .label {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &-drag-node {
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    height: 32px;
+    padding-inline-end: 8px;
+
+    .expand-icon-wrapper {
+      align-items: center;
+      font-size: 0;
+      cursor: pointer;
+      display: flex;
+      height: 24px;
+      justify-content: center;
+      width: 24px;
+      transition: transform linear 0.1s;
+      transform: rotate(0deg);
+    }
+
+    .expand-icon-wrapper.is-open {
+      transform: rotate(90deg);
+    }
+
+    .label {
+      padding-inline-start: 8px;
+    }
+  }
+}
