@@ -7,7 +7,6 @@ import { ExternalNode } from "./ExternalNode";
 import { DragLayer } from "./DragLayer";
 import { DragNode } from "./DragNode";
 import { DragPreview } from "./DragPreview";
-import styles from "./App.module.css";
 import externalNodesJson from "./external_nodes.json";
 import sampleData from "./sample_data.json";
 import { Placeholder } from "./Placeholder";
@@ -17,6 +16,7 @@ import './index.scss';
 
 const App = () => {
   const cls = usePrefix('tree-panel');
+  const treeCls = usePrefix('drag-tree');
 
   const [tree, setTree] = useState(sampleData);
   const [externalNodes, setExternalNodes] = useState(externalNodesJson);
@@ -26,22 +26,16 @@ const App = () => {
   };
 
   return (
-    <WorkspacePanel.Item className={cls}>
+    <div className={cls}>
       <DndProvider
         backend={MultiBackend}
         options={getBackendOptions()}
         debugMode={true}
       >
-        <DragLayer />
-        <div className={styles.rootGrid}>
-          <div className={styles.externalContainer}>
-            <div>
-              {externalNodes.map((node) => (
-                <ExternalNode key={node.id} node={node} />
-              ))}
-            </div>
-          </div>
-          <div>
+        <DragLayer width={300} />
+        <div className={`${treeCls}-main`}>
+          <div className={`${treeCls}-header`}>组件树</div>
+          <div className={`${treeCls}-content`}>
             <Tree
               rootId={0}
               tree={tree}
@@ -49,10 +43,10 @@ const App = () => {
               extraAcceptTypes={["EXTERNAL_NODE"]}
               insertDroppableFirst={false}
               classes={{
-                root: styles.treeRoot,
-                draggingSource: styles.draggingSource,
-                dropTarget: styles.dropTarget,
-                placeholder: styles.placeholderContainer,
+                root: treeCls,
+                draggingSource: `${treeCls}-dragging-source`,
+                dropTarget: `${treeCls}-drop-target`,
+                placeholder: `${treeCls}-placeholder`,
               }}
               render={(node, options) => <DragNode node={node} {...options} />}
               dragPreviewRender={(monitorProps) => (
@@ -73,10 +67,14 @@ const App = () => {
               )}
             />
           </div>
-          <div></div>
+        </div>
+        <div>
+          {externalNodes.map((node) => (
+            <ExternalNode key={node.id} node={node} />
+          ))}
         </div>
       </DndProvider>
-    </WorkspacePanel.Item>
+    </div>
   );
 };
 

@@ -13,8 +13,8 @@ export default function Home() {
     >
       <WorkspacePanel>
         <TreePanel />
-        {/* <ViewPanel iframe="/preview" />
-        <WorkspacePanel.Item>测试</WorkspacePanel.Item> */}
+        <ViewPanel iframe="/preview" />
+        <WorkspacePanel.Item>测试</WorkspacePanel.Item>
       </WorkspacePanel>
     </DesignerLayoutContext.Provider>
   );

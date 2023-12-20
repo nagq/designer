@@ -3,7 +3,6 @@
     "id": 1,
     "parent": 0,
     "droppable": true,
-    "disable": true,
     "text": "Folder 1"
   },
   {
@@ -29,13 +28,14 @@
   {
     "id": 4,
     "parent": 0,
-    "droppable": true,
+    "droppable": false,
     "text": "Folder 2"
   },
   {
     "id": 5,
     "parent": 4,
     "droppable": true,
+    "disable": true,
     "text": "Folder 2-1"
   },
   {

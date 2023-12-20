@@ -19,8 +19,8 @@ const getItemStyles = (monitorProps): React.CSSProperties => {
   };
 };
 
-export const DragLayer = () => {
-  const cls = usePrefix('tree-panel-drag-layer');
+export const DragLayer = ({ width }) => {
+  const cls = usePrefix('drag-layer');
 
   const monitorProps = useDragLayer((monitor) => ({
     item: monitor.getItem(),

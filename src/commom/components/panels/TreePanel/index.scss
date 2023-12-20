@@ -1,60 +1,101 @@
 @import '@/commom/styles/variables.scss';
 
 .#{$prefix-cls}-tree-panel {
-  &-drag-layer {
-    height: 100%;
-    left: 0;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
+  position: relative;
+  width: 300px;
+}
+
+.#{$prefix-cls}-drag-tree {
+  height: 100%;
+
+  &-main {
+    height: 60%;
+    border: 1px solid #ddd;
   }
 
-  &-drag-preview {
-    align-items: "center";
-    background-color: #1967d2;
-    border-radius: 4px;
-    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, .25), 0 0 0 1px rgba(0, 0, 0, .08);
-    color: #fff;
-    display: inline-grid;
-    font-size: 14px;
-    gap: 8px;
-    grid-template-columns: auto auto;
-    padding: 4px 8px;
-    pointer-events: none;
+  &-content {
+    height: calc(100% - 30px);
+    overflow-y: auto;
+  }
 
-    .icon, .label {
-      align-items: center;
-      display: flex;
+  &-header {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    text-indent: 20px;
+    background-color: #f0f0f0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background-color: #d9d9d9;
     }
   }
 
-  &-drag-node {
+  &-dragging-source {
+    opacity: 0.3;
+  }
+
+  &-drop-target {
+    background-color: #e8f0fe;
+  }
+
+  &-placeholder {
+    position: relative;
+  }
+}
+
+.#{$prefix-cls}-drag-layer {
+  height: 60%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, .3);
+  opacity: .2;
+}
+
+.#{$prefix-cls}-drag-preview {
+  align-items: "center";
+  background-color: #1967d2;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-grid;
+  font-size: 14px;
+  gap: 8px;
+  grid-template-columns: auto auto;
+  padding: 4px 8px;
+  pointer-events: none;
+
+  .icon, .label {
     align-items: center;
-    display: grid;
-    grid-template-columns: auto auto 1fr auto;
-    height: 32px;
-    padding-inline-end: 8px;
+    display: flex;
+  }
+}
 
-    .expand-icon-wrapper {
-      align-items: center;
-      font-size: 0;
-      cursor: pointer;
-      display: flex;
-      height: 24px;
-      justify-content: center;
-      width: 24px;
-      transition: transform linear 0.1s;
-      transform: rotate(0deg);
-    }
+.#{$prefix-cls}-drag-node {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  font-size: 14px;
 
-    .expand-icon-wrapper.is-open {
-      transform: rotate(90deg);
-    }
+  .expand-icon-wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+  }
 
-    .label {
-      padding-inline-start: 8px;
-    }
+  .label {
+    padding-inline-start: 8px;
   }
 }
