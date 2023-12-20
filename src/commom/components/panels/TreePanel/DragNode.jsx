@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CaretRightOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { TypeIcon } from "./TypeIcon";
 import { usePrefix } from '@/commom/hooks/usePrefix';
 
 export const DragNode = (props) => {
+  const { node, depth, isOpen, onToggle } = props;
+  const { droppable, alwaysOpen } = node;
+
   const cls = usePrefix('drag-node');
-  const { droppable } = props.node;
-  const indent = props.depth * 24;
+  const indent = depth * 24;
 
   const handleToggle = (e) => {
     e.stopPropagation();
-    props.onToggle(props.node.id);
+    onToggle(node.id);
   };
+
+  useEffect(() => {
+    if (alwaysOpen && !isOpen) {
+      onToggle(true);
+    }
+  }, [alwaysOpen, isOpen, onToggle])
 
   return (
     <div
@@ -19,15 +27,15 @@ export const DragNode = (props) => {
       style={{ paddingInlineStart: indent }}
     >
       <div className="expand-icon-wrapper">
-        {props.node.droppable && (
+        {node.droppable && !alwaysOpen && (
           <div onClick={handleToggle}>
-            { props.isOpen ? <CaretRightOutlined /> : <CaretDownOutlined /> }
+            { isOpen ? <CaretDownOutlined /> : <CaretRightOutlined /> }
           </div>
         )}
       </div>
       <TypeIcon droppable={droppable || false} />
       <div className="label">
-        {props.node.text}
+        {node.text}
       </div>
     </div>
   );

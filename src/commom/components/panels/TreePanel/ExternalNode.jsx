@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDrag } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
-import { TypeIcon } from "./TypeIcon";
-import styles from "./ExternalNode.module.css";
+import { usePrefix } from '@/commom/hooks/usePrefix';
 
 export const ExternalNode = (props) => {
+  const cls = usePrefix('drag-tree-external-node');
   const { droppable } = props.node;
   const [, drag, dragPreview] = useDrag({
     type: "EXTERNAL_NODE",
@@ -13,10 +13,8 @@ export const ExternalNode = (props) => {
         ...props.node,
         id: Math.random(),
       };
-      console.info(data);
       return data;
     },
-    end: console.info,
   });
 
   useEffect(() => {
@@ -24,11 +22,8 @@ export const ExternalNode = (props) => {
   }, [dragPreview]);
 
   return (
-    <div ref={drag} className={styles.root}>
-      <div className={styles.filetype}>
-        <TypeIcon droppable={droppable || false} />
-      </div>
-      <div className={styles.label}>
+    <div ref={drag} className={cls}>
+      <div className="label">
         {props.node.text}
       </div>
     </div>

@@ -10,7 +10,6 @@ import { DragPreview } from "./DragPreview";
 import externalNodesJson from "./external_nodes.json";
 import sampleData from "./sample_data.json";
 import { Placeholder } from "./Placeholder";
-import WorkspacePanel from '../WorkspacePanel';
 
 import './index.scss';
 
@@ -46,7 +45,7 @@ const App = () => {
                 root: treeCls,
                 draggingSource: `${treeCls}-dragging-source`,
                 dropTarget: `${treeCls}-drop-target`,
-                placeholder: `${treeCls}-placeholder`,
+                placeholder: `${treeCls}-placeholder-container`,
               }}
               render={(node, options) => <DragNode node={node} {...options} />}
               dragPreviewRender={(monitorProps) => (

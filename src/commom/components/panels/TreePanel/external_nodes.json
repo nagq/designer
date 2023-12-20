@@ -2,7 +2,9 @@
   {
     "id": 101,
     "parent": 0,
-    "text": "External node 1"
+    "text": "External node 1",
+    "droppable": true,
+    "alwaysOpen": true
   },
   {
     "id": 102,

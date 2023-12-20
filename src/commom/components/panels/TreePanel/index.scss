@@ -46,7 +46,31 @@
   }
 
   &-placeholder {
-    position: relative;
+    background-color: #1967d2;
+    height: 2px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
+
+    &-container {
+      position: relative;
+    }
+  }
+
+  &-external-node {
+    align-items: center;
+    display: flex;
+    height: 24px;
+    font-size: 14px;
+
+    .filetype {
+      display: flex;
+    }
+
+    .label {
+      padding-inline-start: 8px;
+    }
   }
 }
 
