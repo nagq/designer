@@ -2,8 +2,15 @@ import React, { useEffect } from "react";
 import { CaretRightOutlined, CaretDownOutlined } from '@ant-design/icons'
 import { TypeIcon } from "./TypeIcon";
 import { usePrefix } from '@/commom/hooks/usePrefix';
+import { NodeModel, RenderParams } from '@minoru/react-dnd-treeview'
 
-export const DragNode = (props) => {
+interface DragNodeProps extends RenderParams {
+  node: NodeModel & {
+    alwaysOpen?: boolean;
+  },
+}
+
+export const DragNode: React.FC<DragNodeProps> = (props) => {
   const { node, depth, isOpen, onToggle } = props;
   const { droppable, alwaysOpen } = node;
 
@@ -12,12 +19,12 @@ export const DragNode = (props) => {
 
   const handleToggle = (e) => {
     e.stopPropagation();
-    onToggle(node.id);
+    onToggle();
   };
 
   useEffect(() => {
     if (alwaysOpen && !isOpen) {
-      onToggle(true);
+      onToggle();
     }
   }, [alwaysOpen, isOpen, onToggle])
 
@@ -40,3 +47,5 @@ export const DragNode = (props) => {
     </div>
   );
 };
+
+DragNode.displayName = 'DragNode';

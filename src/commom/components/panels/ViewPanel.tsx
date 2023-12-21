@@ -33,4 +33,6 @@ const MobileIframeViewPanel: React.FC<{
   );
 };
 
+MobileIframeViewPanel.displayName = 'ViewPanel';
+
 export default MobileIframeViewPanel;

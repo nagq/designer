@@ -18,6 +18,7 @@ const App = () => {
   const treeCls = usePrefix('drag-tree');
 
   const [tree, setTree] = useState(sampleData);
+  // @ts-ignore
   const [externalNodes, setExternalNodes] = useState(externalNodesJson);
 
   const handleDrop = (newTree, options) => {
@@ -31,7 +32,7 @@ const App = () => {
         options={getBackendOptions()}
         debugMode={true}
       >
-        <DragLayer width={300} />
+        <DragLayer />
         <div className={`${treeCls}-main`}>
           <div className={`${treeCls}-header`}>组件树</div>
           <div className={`${treeCls}-content`}>
@@ -54,15 +55,15 @@ const App = () => {
               onDrop={handleDrop}
               sort={false}
               canDrop={(tree, { dragSource, dropTargetId, dropTarget }) => {
-                if (dragSource.disable) {
-                  return false;
-                }
+                // if (dragSource.disable) {
+                //   return false;
+                // }
                 if (dragSource?.parent === dropTargetId) {
                   return true;
                 }
               }}
               placeholderRender={(node, { depth }) => (
-                <Placeholder node={node} depth={depth} />
+                <Placeholder depth={depth} />
               )}
             />
           </div>

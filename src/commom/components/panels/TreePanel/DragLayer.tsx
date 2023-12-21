@@ -19,7 +19,7 @@ const getItemStyles = (monitorProps): React.CSSProperties => {
   };
 };
 
-export const DragLayer = ({ width }) => {
+export const DragLayer: React.FC<{}> = ({}) => {
   const cls = usePrefix('drag-layer');
 
   const monitorProps = useDragLayer((monitor) => ({
@@ -42,3 +42,5 @@ export const DragLayer = ({ width }) => {
     </div>
   );
 };
+
+DragLayer.displayName = 'DragLayer';

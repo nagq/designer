@@ -3,9 +3,12 @@ import { useDrag } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { usePrefix } from '@/commom/hooks/usePrefix';
 
-export const ExternalNode = (props) => {
+interface ExternalNodeProps {
+  node: any;
+}
+
+export const ExternalNode: React.FC<ExternalNodeProps> = (props) => {
   const cls = usePrefix('drag-tree-external-node');
-  const { droppable } = props.node;
   const [, drag, dragPreview] = useDrag({
     type: "EXTERNAL_NODE",
     item() {
@@ -29,3 +32,5 @@ export const ExternalNode = (props) => {
     </div>
   );
 };
+
+ExternalNode.displayName = 'ExternalNodeProps';

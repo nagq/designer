@@ -1,5 +1,5 @@
 import React from "react";
-import Icon, { BorderOutlined, FileOutlined } from '@ant-design/icons'
+import Icon, { BorderOutlined } from '@ant-design/icons'
 
 const component = () => (
   <svg width="1em" height="1em" viewBox="0 0 1024 1024" fill="currentColor">
@@ -7,10 +7,12 @@ const component = () => (
   </svg>
 );
 
-export const TypeIcon = (props) => {
+export const TypeIcon: React.FC<{ droppable: boolean }> = (props) => {
   if (props.droppable) {
     return <BorderOutlined color="red" />;
   }
 
   return <Icon component={component} />;
 };
+
+TypeIcon.displayName = 'TypeIcon';

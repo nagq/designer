@@ -20,7 +20,7 @@ const WorkspacePanel: React.FC<React.PropsWithChildren<{}>> & {
   );
 };
 
-WorkspacePanel.Item = (props) => {
+const Item:  React.FC<IWorkspaceItemProps> = (props) => {
   const { flexable = true, style, children } = props;
   const prefix = usePrefix('workspace-panel-item')
 
@@ -37,5 +37,9 @@ WorkspacePanel.Item = (props) => {
     </div>
   )
 };
+
+WorkspacePanel.Item = Item;
+WorkspacePanel.displayName = 'WorkspacePanel';
+WorkspacePanel.Item.displayName = 'WorkspacePanel.Item';
 
 export default WorkspacePanel;
