@@ -11,13 +11,6 @@ const MobileIframeViewPanel: React.FC<{
 
   return (
     <WorkspacePanel.Item className={cls} style={{ flex: 2 }}>
-      <div
-        onClick={() =>{
-          iframeRef.current.contentWindow.postMessage('a', '*')
-        }}
-      >
-        test
-      </div>
       <iframe
         id="view-panel"
         style={{
